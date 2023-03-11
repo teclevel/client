@@ -29,6 +29,7 @@ function DeviceCard({ device }: DeviceCardProps): JSX.Element {
         ))}
       </ul>
       <p>Ремонты</p>
+      {/* <Link to="/">Ремонты</Link> */}
 
     </>
   )
@@ -36,4 +37,3 @@ function DeviceCard({ device }: DeviceCardProps): JSX.Element {
 
 export default DeviceCard;
 
-// {/* <p><Link to="/">Ремонты</Link></p> */}

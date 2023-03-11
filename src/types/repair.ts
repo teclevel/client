@@ -1,18 +1,9 @@
-export type TechnicalService = {
-  id: number,
-  numberTS: number,
-  period: number,
-  date: string,
-  status: boolean,
-}
-
-export type TechnicalServices = TechnicalService[]
-
 export type Repair = {
+  deviceId: number,
   id: number,
-  numberR: number,
   date: string,
-  price: number
+  price: number,
+  description: string[],
 }
 
 export type Repairs = Repair[]

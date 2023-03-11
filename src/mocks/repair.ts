@@ -1,33 +1,39 @@
-import { Repairs, TechnicalServices } from "../types/repair"
-
-export const technicalServices: TechnicalServices = [
-  {
-    id: 1,
-    numberTS: 1,
-    period: 30,
-    date: "12.02.23",
-    status: true,
-  },
-  {
-    id: 1,
-    numberTS: 2,
-    period: 30,
-    date: "15.03.23",
-    status: false,
-  }
-]
+import { Repairs } from "../types/repair"
 
 export const repairs: Repairs = [
   {
-    id: 2,
-    numberR: 1,
+    deviceId: 1,
+    id: 1,
     date: '10.01.23',
-    price: 12300,
+    price: 1,
+    description: ['протяжка','чистка','проверка'],
   },
   {
+    deviceId: 1,
     id: 2,
-    numberR: 2,
     date: '12.02.23',
-    price: 123500,
+    price: 2,
+    description: ['чистка','протяжка','проверка'],
+  },
+  {
+    deviceId: 1,
+    id: 3,
+    date: '15.02.23',
+    price:3,
+    description: ['проверка','протяжка','чистка'],
+  },
+  {
+    deviceId: 2,
+    id: 4,
+    date: '10.01.23',
+    price: 4,
+    description: ['протяжка','чистка','проверка'],
+  },
+  {
+    deviceId: 2,
+    id: 5,
+    date: '12.02.23',
+    price: 5,
+    description: ['протяжка','чистка','проверка'],
   }
 ]
