@@ -3,46 +3,25 @@ import { TechnicalServices } from "../types/technicServices";
 
 export const technicalServices: TechnicalServices = [
   {
-    deviceId:1,
-    id: 1,
-    period: 3,
+    deviceId: 1,
+    period: 4,
     year: '2023',
-    week: '1',
-    status: true,
+    weeks: ['', '', '', '', '', '', '', '', '', '', '', '', ''],
   },
-//   {
-//     deviceId: 1,
-//     id: 2,
-//     period: 30,
-//     date: "15.03.23",
-//     status: false,
-//   },
-//   {
-//     deviceId: 1,
-//     id: 3,
-//     period: 30,
-//     date: "12.02.23",
-//     status: true,
-//   },
-//   {
-//     deviceId: 2,
-//     id: 4,
-//     period: 30,
-//     date: "15.03.23",
-//     status: false,
-//   },
-//   {
-//     deviceId: 3,
-//     id: 5,
-//     period: 30,
-//     date: "12.02.23",
-//     status: true,
-//   },
-//   {
-//     deviceId: 3,
-//     id: 6,
-//     period: 30,
-//     date: "15.03.23",
-//     status: false,
-//   }
+  {
+    deviceId: 2,
+    period: 12,
+    year: '2023',
+    weeks: ['2', '', '', '', '2', '', '', '', '2', '', '', '', '1'],
+  },{
+    deviceId: 3,
+    period: 26,
+    year: '2023',
+    weeks: ['1', '', '', '', '1', '', '', '', '1', '', '', '', '1'],
+  },{
+    deviceId: 4,
+    period: 1,
+    year: '2023',
+    weeks: ['2', '', '', '', '2', '', '', '', '2', '', '', '', '1'],
+  },
 ]

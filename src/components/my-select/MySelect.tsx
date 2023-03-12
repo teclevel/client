@@ -1,5 +1,3 @@
-import React from 'react';
-
 type MySelectProps = {
   options: any[],
   defaultValue: string,
@@ -7,7 +5,7 @@ type MySelectProps = {
   onChange:any,
 }
 
-const MySelect = ({ options, defaultValue, value, onChange }: MySelectProps): JSX.Element => {
+function MySelect ({ options, defaultValue, value, onChange }: MySelectProps): JSX.Element {
   return (
     <select
       value={value}
