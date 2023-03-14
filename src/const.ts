@@ -11,15 +11,20 @@ export const SPM_PERIODS = [
   { value: 52, name: '1/год' },
 ];
 
-export enum Repair {
-  NOT_REPAIR = '0',
-  REPAIR = '1',
-  DONE_REPAIR = '2'
+export type RadioButton = {
+  [propertyName: string]: string
 }
 
-export const RADIO_BUTTONS = [
-  { id: '1', value: Repair.NOT_REPAIR, name: 'colorSell', color: 'transparent', label: 'снять' },
-  { id: '2', value: Repair.REPAIR, name: 'colorSell', color: 'red', label: 'проставить' },
-  { id: '3', value: Repair.DONE_REPAIR, name: 'colorSell', color: 'blue', label: 'завершить' },
-];
+export type RadioButtons = RadioButton[]
 
+export const Repair = {
+  NOT_REPAIR: '0',
+  REPAIR: '1',
+  DONE_REPAIR: '2'
+}
+
+export const radioButtons:RadioButtons = [
+  { idR: '1', value: Repair.NOT_REPAIR, name: 'colorSell', color: 'transparent', label: 'снять' },
+  { idR: '2', value: Repair.REPAIR, name: 'colorSell', color: 'red', label: 'проставить' },
+  { idR: '3', value: Repair.DONE_REPAIR, name: 'colorSell', color: 'blue', label: 'завершить' },
+];

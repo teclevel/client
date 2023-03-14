@@ -1,28 +1,34 @@
+import { Fragment } from "react";
+import { RadioButton } from "../../const";
 
 type MyRadioButtonProps = {
-  id: string,
-  name: string,
-  value: string,
-  color: string,
+  options: RadioButton[],
   changed: any,
-  isSelected: boolean,
-  label: string,
+  isSelected: string,
 }
 
-function MyRadioButton({ id, name, value, color, changed, isSelected, label }: MyRadioButtonProps): JSX.Element {
+function MyRadioButton({ options, changed, isSelected }: MyRadioButtonProps): JSX.Element {
 
   return (
     <>
-      <input
-        type='radio'
-        id={id}
-        name={name}
-        value={value}
-        onChange={changed}
-        checked={isSelected} />
-      <label
-        style={{ backgroundColor: color }}
-        htmlFor={id}>{label}</label>
+      {
+        options.map((option: RadioButton) =>
+          <Fragment key={option.idR}>
+            <input
+              type='radio'
+              id={option.idR}
+              name={option.name}
+              value={option.value}
+              onChange={changed}
+              checked={isSelected === option.value} />
+            <label
+              style={{ backgroundColor: option.color }}
+              htmlFor={option.idR}>
+              {option.label}
+            </label>
+          </Fragment>
+        )
+      }
     </>
   )
 }

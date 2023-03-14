@@ -4,12 +4,13 @@ import { useState } from "react";
 import MyRadioButton from "../../components/my-radio-button/MyRadioButton";
 import ColorSell from "../../components/color-sell/ColorSell";
 import MySelect from "../../components/my-select/MySelect";
-import { RADIO_BUTTONS, Repair, SPM_PERIODS } from "../../const";
-import { technicalServices } from "../../mocks/technicServices";
+import { radioButtons, Repair, SPM_PERIODS } from "../../const";
+// import { technicalServices } from "../../mocks/technicServices";
 import { emptySellsWeeks, weeksInYear } from "../../utilities/util";
+
+
+
 const PERIOD = 4;
-
-
 
 
 function TableSPM() {
@@ -20,7 +21,7 @@ function TableSPM() {
   const [colorNumber, setColorNumber] = useState(Repair.NOT_REPAIR)
   const [period, setPeriod] = useState(PERIOD)
 
-  const changeColor = (position: number) => {
+  const setPeriodColor = (position: number) => {
     datesRepair.splice(position, 1, colorNumber);
     setDateRepairs([...datesRepair])
 
@@ -39,20 +40,13 @@ function TableSPM() {
   return (
     <>
       <h2>ППР</h2>
-      {
-        RADIO_BUTTONS.map((button) =>
-        (<MyRadioButton
-          key={button.id}
-          id={button.id}
-          name={button.name}
-          value={button.value}
-          changed={radioChangeHandler}
-          label={button.label}
-          color={button.color}
-          isSelected={colorNumber === button.value}
-        />)
-        )
-      }
+
+      <MyRadioButton
+        options={radioButtons}
+        changed={radioChangeHandler}
+        isSelected={colorNumber}
+      />
+
       <table>
         <thead>
           <tr>
@@ -66,32 +60,26 @@ function TableSPM() {
           </tr>
         </thead>
         <tbody>
-
-          {
-            technicalServices.map((service) => (
-              <tr>
-                <td>{service.deviceId}</td>
-                <td>
-                  <MySelect
-                    options={SPM_PERIODS}
-                    defaultValue='период ТО'
-                    value={service.period}
-                    onChange={(value: number) => setPeriod(value)}
-                  />
+          <tr>
+            <td>oven</td>
+            <td>
+              <MySelect
+                options={SPM_PERIODS}
+                defaultValue='период ТО'
+                value={period}
+                onChange={(value: number) => setPeriod(value)}
+              />
+            </td>
+            {
+              datesRepair.map((color, index) =>
+                <td key={index}>
+                  <ColorSell
+                    cb={() => setPeriodColor(index)}
+                    color={color} />
                 </td>
-                {
-                  datesRepair.map((color, index) =>
-                    <td key={index}>
-                      <ColorSell
-                        cb={() => changeColor(index)}
-                        color={color} />
-                    </td>
-                  )
-                }
-              </tr>
-
-            ))
-          }
+              )
+            }
+          </tr>
         </tbody>
       </table>
     </>
