@@ -2,39 +2,39 @@
 
 import { useState } from "react";
 import MyRadioButton from "../../components/my-radio-button/MyRadioButton";
-import ColorSell from "../../components/color-sell/ColorSell";
-import MySelect from "../../components/my-select/MySelect";
-import { radioButtons, Repair, SPM_PERIODS } from "../../const";
+// import ColorSell from "../../components/color-sell/ColorSell";
+import { radioButtons, Repair, /* SPM_PERIODS */ } from "../../const";
 // import { technicalServices } from "../../mocks/technicServices";
-import { getEmptyWeeksArr, weeksInYear } from "../../utilities/util";
+import { /* getEmptyWeeksArr ,*/ weeksInYear } from "../../utilities/util";
+import SpmItem from "../../components/spm-item/SPM_Item";
+// const emptySellsWeeks = getEmptyWeeksArr();
 
-const emptySellsWeeks = getEmptyWeeksArr();
 
-
-const PERIOD = 4;
+// const PERIOD = 4;
 
 
 function TableSPM() {
   // function TableSPM({ devices, techService }:TableSPM_Props): JSX.Element {
   // const { name } = devices;
   // const { date, period } = techService;
-  const [datesRepair, setDateRepairs] = useState(emptySellsWeeks);
+  // const [datesRepair, setDateRepairs] = useState(emptySellsWeeks);
   const [colorNumber, setColorNumber] = useState(Repair.NOT_REPAIR)
 
-  const [period, setPeriod] = useState(PERIOD)
 
-  const setPeriodColor = (position: number) => {
-    datesRepair.splice(position, 1, colorNumber);
-    setDateRepairs([...datesRepair])
+  // const [period, setPeriod] = useState(PERIOD)
 
-    if (colorNumber === Repair.REPAIR) {
-      const half1 = datesRepair.slice(0, position)
-      const half2 = datesRepair
-        .slice(position + 1, datesRepair.length + 1)
-        .map((i, index) => (index + 1) % period === 0 ? Repair.REPAIR : Repair.NOT_REPAIR)
-      setDateRepairs([...half1, colorNumber, ...half2]);
-    }
-  }
+  // const setPeriodColor = (position: number) => {
+  //   datesRepair.splice(position, 1, colorNumber);
+  //   setDateRepairs([...datesRepair])
+
+  //   if (colorNumber === Repair.REPAIR) {
+  //     const half1 = datesRepair.slice(0, position)
+  //     const half2 = datesRepair
+  //       .slice(position + 1, datesRepair.length + 1)
+  //       .map((i, index) => (index + 1) % period === 0 ? Repair.REPAIR : Repair.NOT_REPAIR)
+  //     setDateRepairs([...half1, colorNumber, ...half2]);
+  //   }
+  // }
   const radioChangeHandler = (evt: any) => {
     setColorNumber(evt.target.value)
   };
@@ -62,7 +62,15 @@ function TableSPM() {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <SpmItem 
+          color={colorNumber}/>
+          <SpmItem 
+          color={colorNumber}/>
+          <SpmItem 
+          color={colorNumber}/>
+          <SpmItem 
+          color={colorNumber}/>
+          {/* <tr>
             <td>oven</td>
             <td>
               <MySelect
@@ -81,27 +89,8 @@ function TableSPM() {
                 </td>
               )
             }
-          </tr>
-          <tr>
-            <td>oven2</td>
-            <td>
-              <MySelect
-                options={SPM_PERIODS}
-                defaultValue='период ТО'
-                value={period}
-                changed={(value: number) => setPeriod(value)}
-              />
-            </td>
-            {
-              datesRepair.map((color, index) =>
-                <td key={index}>
-                  <ColorSell
-                    cb={() => setPeriodColor(index)}
-                    color={color} />
-                </td>
-              )
-            }
-          </tr>
+          </tr> */}
+
         </tbody>
       </table>
     </>
