@@ -1,11 +1,11 @@
 import { Fragment } from "react";
-import { RadioButton } from "../../const";
+import { RadioButton, RadioButtons } from "../../types/radio-button";
 
 type MyRadioButtonProps = {
-  options: RadioButton[],
+  options: RadioButtons,
   changed: any,
   isSelected: string,
-}
+};
 
 function MyRadioButton({ options, changed, isSelected }: MyRadioButtonProps): JSX.Element {
 

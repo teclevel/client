@@ -2,14 +2,14 @@ type MySelectProps = {
   options: any[],
   defaultValue: string,
   value:number,
-  onChange:any,
+  changed:any,
 }
 
-function MySelect ({ options, defaultValue, value, onChange }: MySelectProps): JSX.Element {
+function MySelect ({ options, defaultValue, value, changed }: MySelectProps): JSX.Element {
   return (
     <select
       value={value}
-      onChange={event => onChange(event.target.value)}
+      onChange={event => changed(event.target.value)}
     >
       <option disabled value="">{defaultValue}</option>
       {options.map(option =>

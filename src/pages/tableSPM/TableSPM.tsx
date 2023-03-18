@@ -6,8 +6,9 @@ import ColorSell from "../../components/color-sell/ColorSell";
 import MySelect from "../../components/my-select/MySelect";
 import { radioButtons, Repair, SPM_PERIODS } from "../../const";
 // import { technicalServices } from "../../mocks/technicServices";
-import { emptySellsWeeks, weeksInYear } from "../../utilities/util";
+import { getEmptyWeeksArr, weeksInYear } from "../../utilities/util";
 
+const emptySellsWeeks = getEmptyWeeksArr();
 
 
 const PERIOD = 4;
@@ -19,6 +20,7 @@ function TableSPM() {
   // const { date, period } = techService;
   const [datesRepair, setDateRepairs] = useState(emptySellsWeeks);
   const [colorNumber, setColorNumber] = useState(Repair.NOT_REPAIR)
+
   const [period, setPeriod] = useState(PERIOD)
 
   const setPeriodColor = (position: number) => {
@@ -67,7 +69,27 @@ function TableSPM() {
                 options={SPM_PERIODS}
                 defaultValue='период ТО'
                 value={period}
-                onChange={(value: number) => setPeriod(value)}
+                changed={(value: number) => setPeriod(value)}
+              />
+            </td>
+            {
+              datesRepair.map((color, index) =>
+                <td key={index}>
+                  <ColorSell
+                    cb={() => setPeriodColor(index)}
+                    color={color} />
+                </td>
+              )
+            }
+          </tr>
+          <tr>
+            <td>oven2</td>
+            <td>
+              <MySelect
+                options={SPM_PERIODS}
+                defaultValue='период ТО'
+                value={period}
+                changed={(value: number) => setPeriod(value)}
               />
             </td>
             {

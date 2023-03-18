@@ -1,3 +1,5 @@
+import { RadioButtons } from "./types/radio-button";
+
 export const DEVICE_TYPE = [
   'тепловое',
   'электромеханическое'
@@ -11,17 +13,11 @@ export const SPM_PERIODS = [
   { value: 52, name: '1/год' },
 ];
 
-export type RadioButton = {
-  [propertyName: string]: string
-}
-
-export type RadioButtons = RadioButton[]
-
 export const Repair = {
   NOT_REPAIR: '0',
   REPAIR: '1',
   DONE_REPAIR: '2'
-}
+};
 
 export const radioButtons:RadioButtons = [
   { idR: '1', value: Repair.NOT_REPAIR, name: 'colorSell', color: 'transparent', label: 'снять' },
