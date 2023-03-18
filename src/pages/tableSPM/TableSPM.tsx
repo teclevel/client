@@ -1,5 +1,3 @@
-// import { Device } from "../../types/device";
-
 import { useState } from "react";
 import MyRadioButton from "../../components/my-radio-button/MyRadioButton";
 import { radioButtons, Repair } from "../../const";
