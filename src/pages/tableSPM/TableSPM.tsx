@@ -2,8 +2,8 @@ import { useState } from "react";
 import MyRadioButton from "../../components/my-radio-button/MyRadioButton";
 import { radioButtons, Repair } from "../../const";
 import { weeksInYear } from "../../utilities/util";
-import SpmItem from "../../components/spm-item/SPM_Item";
-
+import SpmItem from "../../components/spm-item/SpmItem";
+import { technicalServices } from "../../mocks/technicServices";
 
 function TableSPM() {
   const [colorNumber, setColorNumber] = useState(Repair.NOT_REPAIR)
@@ -35,8 +35,19 @@ function TableSPM() {
           </tr>
         </thead>
         <tbody>
-          <SpmItem
-            color={colorNumber} />
+
+          {
+            technicalServices.map((device) =>
+
+              < SpmItem
+                key={device.deviceId}
+                deviceId={device.deviceId}
+                color={colorNumber}
+                periodSpm={device.period}
+                weeks={device.weeks}
+              />
+            )
+          }
 
         </tbody>
       </table>

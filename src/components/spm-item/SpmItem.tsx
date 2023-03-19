@@ -1,20 +1,24 @@
-import { getEmptyWeeksArr } from "../../utilities/util";
+// import { getEmptyWeeksArr } from "../../utilities/util";
 import ColorSell from "../color-sell/ColorSell";
 import { useState } from "react";
 import { Repair, SPM_PERIODS } from "../../const";
 import MySelect from "../my-select/MySelect";
 
-const PERIOD = 4;
+// const PERIOD = 4;
 
-const emptySellsWeeks = getEmptyWeeksArr();
 
 type SpmItemProps = {
+  deviceId: number;
   color: string;
+  periodSpm: number;
+  weeks: string[];
 }
 
-function SpmItem({ color }: SpmItemProps): JSX.Element {
-  const [period, setPeriod] = useState(PERIOD)
-  const [datesRepair, setDateRepairs] = useState(emptySellsWeeks);
+function SpmItem({deviceId, color, periodSpm, weeks }: SpmItemProps): JSX.Element {
+  const [period, setPeriod] = useState(periodSpm)
+  
+  // const emptySellsWeeks = getEmptyWeeksArr();
+  const [datesRepair, setDateRepairs] = useState(weeks);
 
   const putPeriod = (position: number) => {
     datesRepair.splice(position, 1, color);
@@ -28,9 +32,10 @@ function SpmItem({ color }: SpmItemProps): JSX.Element {
       setDateRepairs([...half1, color, ...half2]);
     }
   }
+  
   return (
     <tr>
-      <td>oven2</td>
+      <td>{deviceId}</td>
       <td>
         <MySelect
           options={SPM_PERIODS}
