@@ -24,3 +24,19 @@ export const radioButtons:RadioButtons = [
   { idR: '2', value: Repair.REPAIR, name: 'colorSell', color: 'red', label: 'проставить' },
   { idR: '3', value: Repair.DONE_REPAIR, name: 'colorSell', color: 'blue', label: 'завершить' },
 ];
+
+export enum AppRoute {
+  Main= '/',
+  TableSPM='/table-spm',
+  Equipments='/equipments',
+  Repairs='/repairs',
+  Equipment='/equipment/:id',
+  NotFound='*'
+};
+
+export const MainMenus = [
+  {name:'Список оборудования', path:AppRoute.Equipments},
+  {name:'График ППР', path:AppRoute.TableSPM},
+  {name:'Ремонты', path: AppRoute.Repairs},
+];
+

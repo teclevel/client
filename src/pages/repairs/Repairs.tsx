@@ -1,10 +1,10 @@
-import { Repair } from "../../types/repair";
+import { repairs } from "../../mocks/repair";
+// import { Repair } from "../../types/repair";
 
-type RepairsProps = {
-  repairs: Repair[]
-}
-
-function Repairs({ repairs }: RepairsProps): JSX.Element {
+// type RepairsProps = {
+//   repairs: Repair[]
+// }
+function Repairs(): JSX.Element {
   return (
     <table>
       <thead>

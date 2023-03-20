@@ -1,13 +1,14 @@
-import { Device } from "../../types/device";
+import { devices } from "../../mocks/devices";
+// import { Device } from "../../types/device";
 // import { Link } from 'react-router-dom';
 
+// type EquipmentProps = {
+//   device: Device
+// }
 
-type DeviceCardProps = {
-  device: Device
-}
-
-function DeviceCard({ device }: DeviceCardProps): JSX.Element {
-  const { id, inventoryNumber, serialNumber, description, name, type, brand, view, shield, images } = device;
+function Equipment(): JSX.Element {
+  
+  const { id, inventoryNumber, serialNumber, description, name, type, brand, view, shield, images } = devices[0];
   return (
     <>
       <h2>{description}<br />{name}</h2>
@@ -35,5 +36,5 @@ function DeviceCard({ device }: DeviceCardProps): JSX.Element {
   )
 }
 
-export default DeviceCard;
+export default Equipment;
 
