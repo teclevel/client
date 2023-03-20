@@ -22,3 +22,5 @@ function App(/* { devices, techServices }: AppProps */): JSX.Element {
 }
 
 export default App;
+
+//commit
