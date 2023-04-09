@@ -7,7 +7,7 @@ import { devices } from "../../mocks/devices";
 // }
 
 function Equipment(): JSX.Element {
-  
+
   const { id, inventoryNumber, serialNumber, description, name, type, brand, view, shield, images } = devices[0];
   return (
     <>

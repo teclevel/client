@@ -1,13 +1,14 @@
-import styles from './ModalAddEquipment.module.css'
+import { PropsWithChildren } from 'react';
+import styles from './MyModal.module.css'
 
 
-type ModalAddEquipmentProps = {
-  children: any;
+type MyModalProps = PropsWithChildren< {
+  // children?: ReactNode; можно пропустить, т.к PropsWithChildren
   visible: boolean;
   setVisible: (visible: boolean)=>void
-}
+}>
 
-function ModalAddEquipment({ children, visible, setVisible }: ModalAddEquipmentProps): JSX.Element {
+function MyModal({ children, visible, setVisible }: MyModalProps): JSX.Element {
   const rootClasses = [styles.modal]
 
   if (visible) {
@@ -23,4 +24,4 @@ function ModalAddEquipment({ children, visible, setVisible }: ModalAddEquipmentP
   );
 }
 
-export default ModalAddEquipment;
+export default MyModal;

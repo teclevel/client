@@ -4,7 +4,7 @@ import { repairs } from "../../mocks/repair";
 // type RepairsProps = {
 //   repairs: Repair[]
 // }
-function Repairs(): JSX.Element {
+function RepairList(): JSX.Element {
   return (
     <table>
       <thead>
@@ -31,4 +31,4 @@ function Repairs(): JSX.Element {
   )
 }
 
-export default Repairs;
+export default RepairList;

@@ -19,7 +19,7 @@ export type Device ={
   serialNumber: string|number,
   description: string,
   name: string,//модель
-  type: string,  //миксер, печь
+  type: string,  //тепловое, элмеханич
   brand: string,
   view:string,
   shield: string,

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const';
+import { MAIN_ROUTE } from '../../const';
 // import { useAppDispatch } from '../../hooks';
 // import { resetFilmFoundState } from '../../store/film-screening/film-screening';
 
@@ -11,7 +11,7 @@ function NotFound(): JSX.Element {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <h1>Error 404. Page not found!</h1>
       <p>
-        <Link to={AppRoute.Main}
+        <Link to={MAIN_ROUTE}
           // onClick={clickHandle}
         >
           Go to main page.

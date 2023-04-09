@@ -1,5 +1,13 @@
 import { RadioButtons } from "./types/radio-button";
 
+export const MAIN_ROUTE = '/';
+export const AUTH_ROUTE = '/auth';
+export const TABLE_SPM_ROUTE = '/table-spm';
+export const EQUIPMENT_ROUTE = '/equipment';
+export const REPAIR_LIST_ROUTE = '/repair-list';
+// export const EQUIPMENT_ROUTE = 'equipment'; //   +'/:id'
+export const NOT_FOUND = '*';
+
 export const DEVICE_TYPE = [
   'тепловое',
   'электромеханическое'
@@ -19,24 +27,15 @@ export const Repair = {
   DONE_REPAIR: '2'
 };
 
-export const radioButtons:RadioButtons = [
+export const radioButtons: RadioButtons = [
   { idR: '1', value: Repair.NOT_REPAIR, name: 'colorSell', color: 'transparent', label: 'снять' },
   { idR: '2', value: Repair.REPAIR, name: 'colorSell', color: 'red', label: 'проставить' },
   { idR: '3', value: Repair.DONE_REPAIR, name: 'colorSell', color: 'blue', label: 'завершить' },
 ];
 
-export enum AppRoute {
-  Main= '/',
-  TableSPM='/table-spm',
-  Equipments='/equipments',
-  Repairs='/repairs',
-  Equipment='/equipment/:id',
-  NotFound='*'
-};
-
 export const MainMenus = [
-  {name:'Список оборудования', path:AppRoute.Equipments},
-  {name:'График ППР', path:AppRoute.TableSPM},
-  {name:'Ремонты', path: AppRoute.Repairs},
+  { name: 'Список оборудования', path: EQUIPMENT_ROUTE },
+  { name: 'График ППР', path: TABLE_SPM_ROUTE },
+  { name: 'Ремонты', path: REPAIR_LIST_ROUTE },
 ];
 
