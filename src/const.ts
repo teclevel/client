@@ -5,7 +5,6 @@ export const AUTH_ROUTE = '/auth';
 export const TABLE_SPM_ROUTE = '/table-spm';
 export const EQUIPMENT_ROUTE = '/equipment';
 export const REPAIR_LIST_ROUTE = '/repair-list';
-// export const EQUIPMENT_ROUTE = 'equipment'; //   +'/:id'
 export const NOT_FOUND = '*';
 
 export const DEVICE_TYPE = [

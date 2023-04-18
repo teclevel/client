@@ -1,9 +1,10 @@
 // import { Devices } from "../../types/device";
 
-import { useState } from 'react';
-import MyModal from '../../components/myModal/MyModal';
-import { devices } from '../../mocks/devices'
-import { Device } from '../../types/device';
+import { useContext, useState } from 'react';
+import MyModal from '../../components/my-modal/MyModal';
+// import { devices } from '../../mocks/devices'
+import { Devices } from '../../types/device';
+import { Context } from '../..';
 /* export type Device ={
   id: number,
   inventoryNumber: number,
@@ -20,24 +21,26 @@ import { Device } from '../../types/device';
 }
  */
 function EquipmentList(): JSX.Element {
-  const [equipments, setEquipments] = useState<Device[]>([]);
+  const { devices } = useContext(Context)
+  const userDevices = devices.devices
+  const [equipments, setEquipments] = useState<Devices>([]);
   // setEquipments(devices);
   // console.log(equipments)
-  const [equipment, setEquipment] = useState({ inventoryNumber: '', serialNumber: '', description: '', name: '', brand: '', view:'', shield:'', images:'', place:'' });
+  const [equipment, setEquipment] = useState({ inventoryNumber: '', serialNumber: '', description: '', name: '', view: '', shield: '', images: '', place: '' });
   const [modal, setModal] = useState(false);
 
-  const create = (newEquipment:any) => {
+  const create = (newEquipment: any) => {
     setEquipments([...equipments, newEquipment])
     setModal(false)
   }
 
-  const addEquipment = (e:any) => {
+  const addEquipment = (e: any) => {
     e.preventDefault()
     const newEquipment = {
       ...equipment, id: Date.now()
     }
     create(newEquipment)
-    setEquipment({ inventoryNumber: '', serialNumber: '', description: '', name: '', brand: '', view:'', shield:'', images:'', place:''})
+    setEquipment({ inventoryNumber: '', serialNumber: '', description: '', name: '', view: '', shield: '', images: '', place: '' })
   };
 
   return (
@@ -120,8 +123,8 @@ function EquipmentList(): JSX.Element {
         </thead>
         <tbody>
           {
-            devices.map((device, index) => {
-              const { id, inventoryNumber, serialNumber, description, name, brand, place } = device;
+            userDevices.map((device, index) => {
+              const { id, inventoryNumber, serialNumber, description, name, place } = device;
               return (
                 <tr key={id}>
                   <td>{index + 1}</td>
@@ -129,7 +132,7 @@ function EquipmentList(): JSX.Element {
                   <td>{serialNumber}</td>
                   <td>{description}</td>
                   <td>{name}</td>
-                  <td>{brand}</td>
+                  {/* <td>{brand}</td> */}
                   <td>{place.object}</td>
                   <td>{place.place}</td>
                 </tr>

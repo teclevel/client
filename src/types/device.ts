@@ -8,24 +8,24 @@
 } */
 
 
-type Place={
+type Place = {
   object: string,
   place: string
 }
 
-export type Device ={
+export type Device = {
   id: number,
   inventoryNumber: number,
-  serialNumber: string|number,
+  serialNumber: string | number,
   description: string,
   name: string,//модель
-  type: string,  //тепловое, элмеханич
-  brand: string,
-  view:string,
+  // typeId: number,  //тепловое, элмеханич
+  // brandId: number,
+  view: string,
   shield: string,
   images: string[],
- // technicalSpecifications:TechnicalSpecifications,
+  // technicalSpecifications:TechnicalSpecifications,
   place: Place,
 }
 
-export type Devices= Device[];
+export type Devices = Device[];

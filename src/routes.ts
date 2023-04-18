@@ -1,6 +1,7 @@
 import { AUTH_ROUTE, EQUIPMENT_ROUTE, MAIN_ROUTE, NOT_FOUND, REPAIR_LIST_ROUTE, TABLE_SPM_ROUTE } from "./const"
 import Auth from "./pages/auth/Auth"
 import EquipmentList from "./pages/equipment-list/EquipmentList"
+import Equipment from "./pages/equipment/Equipment"
 import Main from "./pages/main/main"
 import NotFound from "./pages/not-found/NotFound"
 import RepairList from "./pages/repairs-list/RepairList"
@@ -29,7 +30,7 @@ export const routes = [
   },
   {
     path: EQUIPMENT_ROUTE + '/:id',
-    Component: EquipmentList
+    Component: Equipment
   },
   {
     path: NOT_FOUND,
