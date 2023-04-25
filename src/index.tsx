@@ -9,10 +9,15 @@ import { brands, devices, types } from './mocks/devices';
 import { Types } from './types/type';
 import { Brands } from './types/brand';
 
+// Importing the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 interface IStore {
   user: {
     isAuth: boolean,
-    user: User //| null
+    user: User, //| null
+    setIsAuth: (a:boolean)=>void
   },
   devices: {
     types:Types,
@@ -23,11 +28,12 @@ interface IStore {
 
 const defaultState = {
   user: {
-    isAuth: true,
+    isAuth: false,
     user: {
       email: 'asd@m.ru',
       password: '123'
-    }
+    },
+    setIsAuth(){} 
   },
   devices: {
     types: types,
