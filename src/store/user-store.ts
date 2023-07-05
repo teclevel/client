@@ -1,26 +1,26 @@
 import { makeAutoObservable } from 'mobx';//работа с MOBX store
 import { User } from '../types/user';
 
-/* type User = {
-  email: string;
-  password: string | number;
-}
- */
+// interface IUserStore {
+//   _isAuth: boolean;
+//   _user: User;
+// }
+
 export default class UserStore {
   _isAuth: boolean;
   _user: User;
 
   constructor() {
-    this._isAuth = false;
+    this._isAuth =false;
     this._user = { email: '', password: '' };
     makeAutoObservable(this);//следит за изменением переменных, и перерендеривает страницу
   }
 
-  setIsAuth(bool: boolean):void {//action
+  setIsAuth(bool: boolean) {//action
     this._isAuth = bool;
   }
 
-  setUser(user: User):void { // action
+  setUser(user: User) { // action
     this._user = user;
   }
 

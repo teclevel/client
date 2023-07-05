@@ -3,16 +3,18 @@ import { useContext, /* useState */ } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { NavLink, /* useLocation */ } from 'react-router-dom';
+import { NavLink, useLocation, /* useLocation */ } from 'react-router-dom';
 import { Context } from '../../index';
-import { AUTH_ROUTE } from '../../const';
+import { REGISTRATION_ROUTE, LOGIN_ROUTE } from '../../const';
 // import { login, registration } from '../http/userApi';
-// import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../routes';
+// import { LOGIN_ROUTE/* , REGISTRATION_ROUTE  */} from '../../routes';
 
 function Auth() {
   const { user } = useContext(Context);
-  // const location = useLocation();
-  // const isLogin = location.pathname === LOGIN_ROUTE;
+  const location = useLocation();
+
+  const isLogin = location.pathname === LOGIN_ROUTE;
+
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
 
@@ -37,7 +39,7 @@ function Auth() {
       >
         <h2 className='m-auto mb-4'>
           {
-            user.isAuth ? 'Авторизация' : 'Регистрация'
+            isLogin ? 'Авторизация' : 'Регистрация'
           }
         </h2>
         <Form
@@ -48,8 +50,8 @@ function Auth() {
             <Form.Control
               type="email"
               placeholder="Enter email"
-              // value={email}
-              // onChange={e => setEmail(e.target.value)}
+            // value={email}
+            // onChange={e => setEmail(e.target.value)}
             />
           </Form.Group>
 
@@ -66,23 +68,27 @@ function Auth() {
 
           <div className='d-flex justify-content-between'>
             {
-              user.isAuth ?
-                <NavLink to={AUTH_ROUTE} className='me-4'>
-                  Зарегистрироваться
-                </NavLink>
+              isLogin ?
+                <>
+                  Нет аккаунта? <NavLink to={REGISTRATION_ROUTE} className='me-4'>
+                    Зарегистрируйся
+                  </NavLink>
+                </>
                 :
-                <NavLink to={AUTH_ROUTE} className='me-4'>
-                  Войти
-                </NavLink>
+                <>
+                  Есть аккаунт? <NavLink to={LOGIN_ROUTE} className='me-4'>
+                    Войти
+                  </NavLink>
+                </>
 
             }
             <Button
               variant="primary"
               type="submit"
-              // onClick={click}
+            // onClick={click}
             >
               {
-                user.isAuth ? 'Войти' : 'Регистрация'
+                isLogin ? 'Войти' : 'Зарегистрироваться'
               }
             </Button>
           </div>

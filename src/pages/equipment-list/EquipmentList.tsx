@@ -5,6 +5,8 @@ import MyModal from '../../components/my-modal/MyModal';
 // import { devices } from '../../mocks/devices'
 import { Devices } from '../../types/device';
 import { Context } from '../..';
+import { useNavigate } from 'react-router-dom';
+import { EQUIPMENT_ROUTE } from '../../const';
 /* export type Device ={
   id: number,
   inventoryNumber: number,
@@ -21,8 +23,11 @@ import { Context } from '../..';
 }
  */
 function EquipmentList(): JSX.Element {
+  const navigate = useNavigate();
   const { devices } = useContext(Context)
+
   const userDevices = devices.devices
+
   const [equipments, setEquipments] = useState<Devices>([]);
   // setEquipments(devices);
   // console.log(equipments)
@@ -42,7 +47,7 @@ function EquipmentList(): JSX.Element {
     create(newEquipment)
     setEquipment({ inventoryNumber: '', serialNumber: '', description: '', name: '', view: '', shield: '', images: '', place: '' })
   };
-
+console.log('log', userDevices);
   return (
     <>
       <button onClick={() => setModal(true)}>
@@ -64,9 +69,10 @@ function EquipmentList(): JSX.Element {
             Инвентарный номер
             <input type="text"
               value={equipment.inventoryNumber}
-              onChange={(e) => setEquipment({ ...equipment, inventoryNumber: e.target.value })} />
+              onChange={(e) => setEquipment({ ...equipment, inventoryNumber: e.target.value })}
+            />
           </label>
-          <label>
+          {/* <label>
             S/N
             <input type="text" />
           </label>
@@ -101,10 +107,10 @@ function EquipmentList(): JSX.Element {
           <label>
             Место
             <input type="text" />
-          </label>
-          <button
-            onClick={addEquipment}
-          >Добавить оборудование</button>
+          </label> */}
+          <button onClick={addEquipment}>
+            Добавить оборудование
+          </button>
 
         </form>
       </MyModal>
@@ -126,7 +132,7 @@ function EquipmentList(): JSX.Element {
             userDevices.map((device, index) => {
               const { id, inventoryNumber, serialNumber, description, name, place } = device;
               return (
-                <tr key={id}>
+                <tr key={id} onClick={() => navigate(`${EQUIPMENT_ROUTE}/${id}`)}>
                   <td>{index + 1}</td>
                   <td>{inventoryNumber}</td>
                   <td>{serialNumber}</td>

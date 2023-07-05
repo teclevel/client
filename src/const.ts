@@ -1,7 +1,9 @@
 import { RadioButtons } from "./types/radio-button";
 
 export const MAIN_ROUTE = '/';
-export const AUTH_ROUTE = '/auth';
+export const ADMIN_ROUTE = '/admin';
+export const LOGIN_ROUTE = '/login';
+export const REGISTRATION_ROUTE = '/registration';
 export const TABLE_SPM_ROUTE = '/table-spm';
 export const EQUIPMENT_ROUTE = '/equipment';
 export const REPAIR_LIST_ROUTE = '/repair-list';

@@ -4,14 +4,21 @@
 
 import { useContext } from "react";
 import { Context } from "../..";
+import { useParams } from "react-router-dom";
 
 // type EquipmentProps = {
 //   device: Device
 // }
 
 function Equipment(): JSX.Element {
-const {devices}=useContext(Context)
-  const { id, inventoryNumber, serialNumber, description, name, view, shield, images } = devices.devices[0];
+  const { devices } = useContext(Context);
+  const { id } = useParams();
+  const idDevice = Number(id) - 1;
+
+  // const id2=Number(id)
+  console.log(idDevice);
+
+  const { inventoryNumber, serialNumber, description, name, view, shield, images } = devices.devices[idDevice];
   return (
     <>
       <h2>{description}<br />{name}</h2>
@@ -27,7 +34,7 @@ const {devices}=useContext(Context)
       </dl>
       <ul>
         {images.map(image => (
-          <li key={id}>
+          <li key={image}>
             <img src={image} width="100" height="75" alt="вид объекта" />
           </li>
         ))}

@@ -1,18 +1,21 @@
 import { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { routes } from "../../routes";
+import { publicRoutes } from "../../routes";
 import { Context } from '../../index'
 import NavBar from "../nav-bar/NavBar";
+import { observer } from 'mobx-react-lite';
 
 
 function App(): JSX.Element {
   const { user } = useContext(Context)
+  console.log('user.isAuth-', user.isAuth);
+
   return (
     <BrowserRouter>
       <NavBar />
       <Routes >
         {
-          user.isAuth && routes.map(({ path, Component }) =>
+          user.isAuth && publicRoutes.map(({ path, Component }) =>
             <Route
               key={path}
               path={path}
@@ -25,4 +28,4 @@ function App(): JSX.Element {
   )
 }
 
-export default App;
+export default observer(App);

@@ -26,23 +26,28 @@ interface IStore {
   }
 }
 
-const defaultState = {
+const defaultState:IStore = {
   user: {
     isAuth: false,
     user: {
       email: 'asd@m.ru',
       password: '123'
     },
-    setIsAuth(){} 
+    setIsAuth(){},
+    // setUser(){} 
   },
   devices: {
     types: types,
     brands: brands,
-    devices: devices
+    devices: devices,
+    // setTypes(){},
+    // setBrands(){},
+    // setDevices(){}
+
   }
 }
 
-export const Context = createContext<IStore>(defaultState);
+export const Context = createContext(defaultState);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
