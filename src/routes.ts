@@ -1,4 +1,4 @@
-import { ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, EQUIPMENT_ROUTE, MAIN_ROUTE, NOT_FOUND, REPAIR_LIST_ROUTE, TABLE_SPM_ROUTE } from "./const"
+import { LOGIN_ROUTE, REGISTRATION_ROUTE, EQUIPMENT_ROUTE, MAIN_ROUTE, NOT_FOUND, REPAIR_LIST_ROUTE, TABLE_SPM_ROUTE } from "./const"
 import Auth from "./pages/auth/Auth"
 import EquipmentList from "./pages/equipment-list/EquipmentList"
 import Equipment from "./pages/equipment/Equipment"

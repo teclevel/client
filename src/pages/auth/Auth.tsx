@@ -1,16 +1,16 @@
 import { observer } from 'mobx-react-lite';
-import { useContext, /* useState */ } from 'react';
+// import { useContext, /* useState */ } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { NavLink, useLocation, /* useLocation */ } from 'react-router-dom';
-import { Context } from '../../index';
+// import { Context } from '../../index';
 import { REGISTRATION_ROUTE, LOGIN_ROUTE } from '../../const';
 // import { login, registration } from '../http/userApi';
 // import { LOGIN_ROUTE/* , REGISTRATION_ROUTE  */} from '../../routes';
 
 function Auth() {
-  const { user } = useContext(Context);
+  // const { user } = useContext(Context);
   const location = useLocation();
 
   const isLogin = location.pathname === LOGIN_ROUTE;

@@ -28,26 +28,27 @@ function EquipmentList(): JSX.Element {
 
   const userDevices = devices.devices
 
-  const [equipments, setEquipments] = useState<Devices>([]);
+  const [equipments, setEquipments] = useState<Devices>(userDevices);
   // setEquipments(devices);
   // console.log(equipments)
-  const [equipment, setEquipment] = useState({ inventoryNumber: '', serialNumber: '', description: '', name: '', view: '', shield: '', images: '', place: '' });
+  const [equipment, setEquipment] = useState({ inventoryNumber: 0, serialNumber: '', description: '', name: '', view: '', shield: '', images: [], place: {object:'',place:''} });
   const [modal, setModal] = useState(false);
 
-  const create = (newEquipment: any) => {
-    setEquipments([...equipments, newEquipment])
-    setModal(false)
-  }
 
   const addEquipment = (e: any) => {
     e.preventDefault()
+
     const newEquipment = {
       ...equipment, id: Date.now()
     }
-    create(newEquipment)
-    setEquipment({ inventoryNumber: '', serialNumber: '', description: '', name: '', view: '', shield: '', images: '', place: '' })
+    console.log('equipments:', equipments);
+    console.log('newEquipment:',newEquipment);
+    setEquipments([...equipments, newEquipment])
+    // create(newEquipment)
+    setModal(false)
+    setEquipment({ inventoryNumber: 0, serialNumber: '', description: '', name: '', view: '', shield: '', images: [], place: {object:'',place:''} })//обнуление, для след. заполнения
   };
-console.log('log', userDevices);
+// console.log('log', userDevices);
   return (
     <>
       <button onClick={() => setModal(true)}>
@@ -69,13 +70,18 @@ console.log('log', userDevices);
             Инвентарный номер
             <input type="text"
               value={equipment.inventoryNumber}
-              onChange={(e) => setEquipment({ ...equipment, inventoryNumber: e.target.value })}
+              onChange={(e) => setEquipment({ ...equipment, inventoryNumber: Number(e.target.value) })}
             />
           </label>
-          {/* <label>
-            S/N
-            <input type="text" />
+
+          <label>
+          S/N
+            <input type="text"
+              value={equipment.serialNumber}
+              onChange={(e) => setEquipment({ ...equipment, serialNumber: e.target.value })}
+            />
           </label>
+          {/*
           <label>
             Описание
             <input type="text" />
@@ -129,7 +135,7 @@ console.log('log', userDevices);
         </thead>
         <tbody>
           {
-            userDevices.map((device, index) => {
+            equipments.map((device, index) => {
               const { id, inventoryNumber, serialNumber, description, name, place } = device;
               return (
                 <tr key={id} onClick={() => navigate(`${EQUIPMENT_ROUTE}/${id}`)}>
