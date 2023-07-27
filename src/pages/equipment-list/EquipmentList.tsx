@@ -25,30 +25,23 @@ import { EQUIPMENT_ROUTE } from '../../const';
 function EquipmentList(): JSX.Element {
   const navigate = useNavigate();
   const { devices } = useContext(Context)
-
   const userDevices = devices.devices
-
   const [equipments, setEquipments] = useState<Devices>(userDevices);
-  // setEquipments(devices);
-  // console.log(equipments)
   const [equipment, setEquipment] = useState({ inventoryNumber: 0, serialNumber: '', description: '', name: '', view: '', shield: '', images: [], place: {object:'',place:''} });
   const [modal, setModal] = useState(false);
 
-
   const addEquipment = (e: any) => {
     e.preventDefault()
-
     const newEquipment = {
       ...equipment, id: Date.now()
     }
     console.log('equipments:', equipments);
     console.log('newEquipment:',newEquipment);
     setEquipments([...equipments, newEquipment])
-    // create(newEquipment)
     setModal(false)
     setEquipment({ inventoryNumber: 0, serialNumber: '', description: '', name: '', view: '', shield: '', images: [], place: {object:'',place:''} })//обнуление, для след. заполнения
   };
-// console.log('log', userDevices);
+
   return (
     <>
       <button onClick={() => setModal(true)}>
