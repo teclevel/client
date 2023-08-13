@@ -6,7 +6,8 @@ import MyModal from '../../components/my-modal/MyModal';
 import { Devices } from '../../types/device';
 import { Context } from '../..';
 import { useNavigate } from 'react-router-dom';
-import { EQUIPMENT_ROUTE } from '../../const';
+// import { EQUIPMENT_ROUTE } from '../../const';
+import Table from '../../components/table/Table';
 
 const initialEquipment = {
   inventoryNumber: 0,
@@ -86,7 +87,9 @@ function EquipmentList(): JSX.Element {
 
         </form>
       </MyModal>
-      <table>
+      <Table/>
+      {/* </Table> */}
+      {/* <table>
         <thead>
           <tr>
             {
@@ -109,7 +112,6 @@ function EquipmentList(): JSX.Element {
                   <td>{serialNumber}</td>
                   <td>{description}</td>
                   <td>{name}</td>
-                  {/* //{<td>{brand}</td> } */}
                   <td>{place.object}</td>
                   <td>{place.place}</td>
                 </tr>
@@ -117,7 +119,7 @@ function EquipmentList(): JSX.Element {
             })
           }
         </tbody>
-      </table>
+      </table> */}
     </>
   )
 }

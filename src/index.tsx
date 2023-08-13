@@ -11,7 +11,7 @@ import { Brands } from './types/brand';
 
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './styles.css';
 
 interface IStore {
   user: {
@@ -34,7 +34,7 @@ const defaultState:IStore = {
       password: '123'
     },
     setIsAuth(){},
-    // setUser(){} 
+    // setUser(){}
   },
   devices: {
     types: types,
