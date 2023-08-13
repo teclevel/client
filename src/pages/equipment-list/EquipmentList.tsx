@@ -7,27 +7,31 @@ import { Devices } from '../../types/device';
 import { Context } from '../..';
 import { useNavigate } from 'react-router-dom';
 import { EQUIPMENT_ROUTE } from '../../const';
-/* export type Device ={
-  id: number,
-  inventoryNumber: number,
-  serialNumber: string|number,
-  description: string,
-  name: string,//модель
-  type: string,  //миксер, печь
-  brand: string,
-  view:string,
-  shield: string,
-  images: string[],
- // technicalSpecifications:TechnicalSpecifications,
-  place: Place,
+
+const initialEquipment = {
+  inventoryNumber: 0,
+  serialNumber: '',
+  description: '',
+  name: '',
+  view: '',
+  shield: '',
+  images: [],
+  place:
+  {
+    object: '',
+    place: ''
+  }
 }
- */
+
+const headers = ['№ п/п', 'Инвентарный номер', 'S/N', 'Описание', 'Название', 'Объект', 'Место'];
+
 function EquipmentList(): JSX.Element {
   const navigate = useNavigate();
   const { devices } = useContext(Context)
   const userDevices = devices.devices
+
   const [equipments, setEquipments] = useState<Devices>(userDevices);
-  const [equipment, setEquipment] = useState({ inventoryNumber: 0, serialNumber: '', description: '', name: '', view: '', shield: '', images: [], place: {object:'',place:''} });
+  const [equipment, setEquipment] = useState(initialEquipment);
   const [modal, setModal] = useState(false);
 
   const addEquipment = (e: any) => {
@@ -35,11 +39,10 @@ function EquipmentList(): JSX.Element {
     const newEquipment = {
       ...equipment, id: Date.now()
     }
-    console.log('equipments:', equipments);
-    console.log('newEquipment:',newEquipment);
+
     setEquipments([...equipments, newEquipment])
     setModal(false)
-    setEquipment({ inventoryNumber: 0, serialNumber: '', description: '', name: '', view: '', shield: '', images: [], place: {object:'',place:''} })//обнуление, для след. заполнения
+    setEquipment(initialEquipment)//обнуление, для след. заполнения
   };
 
   return (
@@ -68,45 +71,15 @@ function EquipmentList(): JSX.Element {
           </label>
 
           <label>
-          S/N
+            S/N
             <input type="text"
               value={equipment.serialNumber}
               onChange={(e) => setEquipment({ ...equipment, serialNumber: e.target.value })}
             />
           </label>
-          {/*
-          <label>
-            Описание
-            <input type="text" />
-          </label>
-          <label>
-            Название
-            <input type="text" />
-          </label>
-          <label>
-            Бренд
-            <input type="text" />
-          </label>
-          <label>
-            Вид
-            <input type="text" />
-          </label>
-          <label>
-            Шильдик
-            <input type="text" />
-          </label>
-          <label>
-            Фото
-            <input type="text" />
-          </label>
-          <label>
-            Объект
-            <input type="text" />
-          </label>
-          <label>
-            Место
-            <input type="text" />
-          </label> */}
+
+
+
           <button onClick={addEquipment}>
             Добавить оборудование
           </button>
@@ -116,14 +89,13 @@ function EquipmentList(): JSX.Element {
       <table>
         <thead>
           <tr>
-            <th>№ п/п</th>
-            <th>Инвентарный номер</th>
-            <th>S/N</th>
-            <th>Описание</th>
-            <th>Название</th>
-            <th>Бренд</th>
-            <th>Объект</th>
-            <th>Место</th>
+            {
+              headers.map((header) =>
+                <th key={header.toString()}>
+                  {header}
+                </th>
+              )
+            }
           </tr>
         </thead>
         <tbody>
@@ -137,7 +109,7 @@ function EquipmentList(): JSX.Element {
                   <td>{serialNumber}</td>
                   <td>{description}</td>
                   <td>{name}</td>
-                  {/* <td>{brand}</td> */}
+                  {/* //{<td>{brand}</td> } */}
                   <td>{place.object}</td>
                   <td>{place.place}</td>
                 </tr>
