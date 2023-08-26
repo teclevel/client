@@ -1,11 +1,7 @@
-// import { Devices } from "../../types/device";
-
 import { useContext, useState } from 'react';
 import MyModal from '../../components/my-modal/MyModal';
-// import { devices } from '../../mocks/devices'
-import { Devices } from '../../types/device';
 import { Context } from '../..';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 // import { EQUIPMENT_ROUTE } from '../../const';
 import Table from '../../components/table/Table';
 
@@ -24,14 +20,21 @@ const initialEquipment = {
   }
 }
 
-const headers = ['№ п/п', 'Инвентарный номер', 'S/N', 'Описание', 'Название', 'Объект', 'Место'];
+const items = [
+  {
+    name: 'Инвентарный номер',
+    value: 'inventoryNumber'
+  },
+  {
+    name: 'S/N',
+    value: 'serialNumber'
+  }]
 
 function EquipmentList(): JSX.Element {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { devices } = useContext(Context)
   const userDevices = devices.devices
 
-  const [equipments, setEquipments] = useState<Devices>(userDevices);
   const [equipment, setEquipment] = useState(initialEquipment);
   const [modal, setModal] = useState(false);
 
@@ -41,7 +44,7 @@ function EquipmentList(): JSX.Element {
       ...equipment, id: Date.now()
     }
 
-    setEquipments([...equipments, newEquipment])
+    devices.setDevices([...userDevices, newEquipment])
     setModal(false)
     setEquipment(initialEquipment)//обнуление, для след. заполнения
   };
@@ -57,13 +60,8 @@ function EquipmentList(): JSX.Element {
       >
         <h2>Добавить оборудование</h2>
         <form style={{ display: 'flex', flexDirection: 'column' }}>
-          {/* <MyInput
-                value={post.title}
-                onChange={e => setPost({...post, title: e.target.value})}
-                type="text"
-                placeholder="Название поста"
-            /> */}
-          <label>
+          
+          {/* <label>
             Инвентарный номер
             <input type="text"
               value={equipment.inventoryNumber}
@@ -77,36 +75,35 @@ function EquipmentList(): JSX.Element {
               value={equipment.serialNumber}
               onChange={(e) => setEquipment({ ...equipment, serialNumber: e.target.value })}
             />
-          </label>
+          </label> */}
 
 
-
+          {
+            items.map(({ name, value }) =>
+              <label key={name}>
+                {name}
+                <input type="text"
+                  // @ts-ignore
+                  value={equipment[value]}
+                  onChange={(e) => setEquipment({ ...equipment, [value]: Number(e.target.value) })}
+                />
+              </label>
+            )
+          }
           <button onClick={addEquipment}>
             Добавить оборудование
           </button>
 
         </form>
       </MyModal>
-      <Table/>
-      {/* </Table> */}
+      <Table />
       {/* <table>
-        <thead>
-          <tr>
-            {
-              headers.map((header) =>
-                <th key={header.toString()}>
-                  {header}
-                </th>
-              )
-            }
-          </tr>
-        </thead>
         <tbody>
           {
-            equipments.map((device, index) => {
+            userDevices.map((device, index) => {
               const { id, inventoryNumber, serialNumber, description, name, place } = device;
               return (
-                <tr key={id} onClick={() => navigate(`${EQUIPMENT_ROUTE}/${id}`)}>
+                <tr key={id} >
                   <td>{index + 1}</td>
                   <td>{inventoryNumber}</td>
                   <td>{serialNumber}</td>
@@ -124,4 +121,4 @@ function EquipmentList(): JSX.Element {
   )
 }
 
-export default EquipmentList;
+export default EquipmentList; 

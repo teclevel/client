@@ -23,6 +23,7 @@ interface IStore {
     types:Types,
     brands: Brands,
     devices:Devices,
+    setDevices: (a:any[])=>void
   }
 }
 
@@ -42,7 +43,7 @@ const defaultState:IStore = {
     devices: devices,
     // setTypes(){},
     // setBrands(){},
-    // setDevices(){}
+    setDevices(){}
 
   }
 }

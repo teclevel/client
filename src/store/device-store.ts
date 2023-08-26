@@ -23,7 +23,7 @@ export default class DeviceStore {
       { id: 3, name: 'rational' }
     ];
 
-    this._devices = devices
+    this._devices = devices;
 
     makeAutoObservable(this);//следит за изменением переменных, и перерендеривает страницу
   }
@@ -36,8 +36,8 @@ export default class DeviceStore {
     this._brands = brands;
   }
 
-  setDevises(devises: Devices) {//action
-    this._devices = devises;
+  setDevices(devices: Devices) {//action
+    this._devices = devices;
   }
 
   get types() {

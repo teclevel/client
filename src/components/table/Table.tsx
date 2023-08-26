@@ -1,10 +1,10 @@
-import getData, { User } from "../../utils/getData";
 import MaterialReactTable, { MRT_ColumnDef } from "material-react-table";
+import { Context } from "../..";
+import { useContext } from 'react';
+import { Device } from "../../types/device";
 
-const data = getData(40);
 
-// сигнатура определения колонки немного отличается от React Table
-export const columns: MRT_ColumnDef<User>[] = [
+export const myColumns: MRT_ColumnDef<Device>[] = [
   {
     header: "ID",
     accessorKey: "id",
@@ -13,44 +13,35 @@ export const columns: MRT_ColumnDef<User>[] = [
     enableColumnFilter: false
   },
   {
-    header: "First",
-    accessorKey: "firstName"
+    header: "Инв. номер",
+    accessorKey: "inventoryNumber"
   },
   {
-    header: "Last Name",
-    accessorKey: "lastName"
+    header:"Сер. номер",
+    accessorKey: "serialNumber"
   },
   {
-    header: "Age",
-    accessorKey: "age"
+    header: "Описание",
+    accessorKey: "description"
   },
   {
-    header: "Email",
-    accessorKey: "email"
+    header: "Название",
+    accessorKey: "name"
   },
-  {
-    header: "Phone",
-    accessorKey: "phone"
-  },
-
-  {
-    header: "Address",
-    accessorFn: ({ address }) => `${address.city}, ${address.street}`
-  },
-  {
-    header: "Company",
-    accessorFn: ({ job }) => `${job.position} in ${job.company}`
-  }
 ];
 
-export default function Table() {
-  // вуаля!
+export default function Table():JSX.Element {
+  const {devices}= useContext(Context);
+  const myData = devices.devices;
+  
   return (
     <MaterialReactTable
-      columns={columns}
-      data={data}
+      columns={myColumns}
+      data={myData}
       enableRowSelection
       initialState={{ density: "compact" }}
     />
   );
 }
+
+
