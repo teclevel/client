@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker'
+// import { faker } from '@faker-js/faker'
 
 const range = (len: number) => {
   const arr = []
@@ -21,19 +21,19 @@ const createUser = () => {
 
   return {
     id: id(),
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName(),
-    age: randInt(18, 65),
-    email: faker.internet.email(),
-    phone: faker.phone.number(),
-    address: {
-      city: faker.address.cityName(),
-      street: faker.address.streetAddress()
-    },
-    job: {
-      position: faker.name.jobTitle(),
-      company: faker.company.name()
-    },
+    // firstName: faker.name.firstName(),
+    // lastName: faker.name.lastName(),
+    // age: randInt(18, 65),
+    // email: faker.internet.email(),
+    // phone: faker.phone.number(),
+    // address: {
+    //   city: faker.address.cityName(),
+    //   street: faker.address.streetAddress()
+    // },
+    // job: {
+    //   position: faker.name.jobTitle(),
+    //   company: faker.company.name()
+    // },
     visits: Math.floor(Math.random() * 100),
     progress: Math.floor(Math.random() * 100),
     status:

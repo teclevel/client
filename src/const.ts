@@ -1,4 +1,4 @@
-import { RadioButtons } from "./types/radio-button";
+import { RadioButtons } from './types/radio-button';
 
 export const MAIN_ROUTE = '/';
 export const ADMIN_ROUTE = '/admin';
@@ -40,3 +40,36 @@ export const MainMenus = [
   { name: 'Ремонты', path: REPAIR_LIST_ROUTE },
 ];
 
+export const headersTable = [
+  {
+    header: 'ID',
+    accessorKey: 'id',
+    // отключаем сортировку и фильтрацию
+    enableSorting: false,
+    enableColumnFilter: false
+  },
+  {
+    header: 'Инв. номер',
+    accessorKey: 'inventoryNumber'
+  },
+  {
+    header: 'Сер. номер',
+    accessorKey: 'serialNumber'
+  },
+  {
+    header: 'Описание',
+    accessorKey: 'description'
+  },
+  {
+    header: 'Название',
+    accessorKey: 'name'
+  },
+  {
+    header: 'Объект',
+    accessorKey: 'city'
+  },
+  {
+    header: 'Место',
+    accessorKey: 'placeIn'
+  },
+]

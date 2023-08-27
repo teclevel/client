@@ -8,10 +8,10 @@
 } */
 
 
-type Place = {
-  object: string,
-  place: string
-}
+// type Place = {
+//   object: string,
+//   place: string
+// }
 
 export type Device = {
   id: number,
@@ -25,7 +25,8 @@ export type Device = {
   shield: string,
   images: string[],
   // technicalSpecifications:TechnicalSpecifications,
-  place: Place,
+  city: string,
+  placeIn: string
 }
 
 export type Devices = Device[];

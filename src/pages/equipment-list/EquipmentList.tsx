@@ -4,6 +4,8 @@ import { Context } from '../..';
 // import { useNavigate } from 'react-router-dom';
 // import { EQUIPMENT_ROUTE } from '../../const';
 import Table from '../../components/table/Table';
+import { headersTable } from '../../const';
+
 
 const initialEquipment = {
   inventoryNumber: 0,
@@ -13,25 +15,24 @@ const initialEquipment = {
   view: '',
   shield: '',
   images: [],
-  place:
-  {
-    object: '',
-    place: ''
-  }
+  object: '',
+  placeIn: ''
 }
 
-const items = [
-  {
-    name: 'Инвентарный номер',
-    value: 'inventoryNumber'
-  },
-  {
-    name: 'S/N',
-    value: 'serialNumber'
-  }]
+// const items = [
+//   {
+//     name: 'Инвентарный номер',
+//     value: 'inventoryNumber'
+//   },
+//   {
+//     name: 'S/N',
+//     value: 'serialNumber'
+//   }]
 
 function EquipmentList(): JSX.Element {
   // const navigate = useNavigate();
+  console.log(headersTable);
+
   const { devices } = useContext(Context)
   const userDevices = devices.devices
 
@@ -60,7 +61,7 @@ function EquipmentList(): JSX.Element {
       >
         <h2>Добавить оборудование</h2>
         <form style={{ display: 'flex', flexDirection: 'column' }}>
-          
+
           {/* <label>
             Инвентарный номер
             <input type="text"
@@ -79,13 +80,13 @@ function EquipmentList(): JSX.Element {
 
 
           {
-            items.map(({ name, value }) =>
-              <label key={name}>
-                {name}
+            headersTable.map(({ header, accessorKey }) =>
+              <label key={header}>
+                {header}
                 <input type="text"
                   // @ts-ignore
-                  value={equipment[value]}
-                  onChange={(e) => setEquipment({ ...equipment, [value]: Number(e.target.value) })}
+                  value={equipment[accessorKey]}
+                  onChange={(e) => setEquipment({ ...equipment, [accessorKey]: Number(e.target.value) })}
                 />
               </label>
             )
