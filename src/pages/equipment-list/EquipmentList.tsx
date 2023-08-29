@@ -4,8 +4,7 @@ import { Context } from '../..';
 // import { useNavigate } from 'react-router-dom';
 // import { EQUIPMENT_ROUTE } from '../../const';
 import Table from '../../components/table/Table';
-import { headersTable } from '../../const';
-
+import { NUMBER_WORD, ID, headersTable } from '../../const';
 
 const initialEquipment = {
   inventoryNumber: 0,
@@ -19,15 +18,7 @@ const initialEquipment = {
   placeIn: ''
 }
 
-// const items = [
-//   {
-//     name: 'Инвентарный номер',
-//     value: 'inventoryNumber'
-//   },
-//   {
-//     name: 'S/N',
-//     value: 'serialNumber'
-//   }]
+
 
 function EquipmentList(): JSX.Element {
   // const navigate = useNavigate();
@@ -62,33 +53,21 @@ function EquipmentList(): JSX.Element {
         <h2>Добавить оборудование</h2>
         <form style={{ display: 'flex', flexDirection: 'column' }}>
 
-          {/* <label>
-            Инвентарный номер
-            <input type="text"
-              value={equipment.inventoryNumber}
-              onChange={(e) => setEquipment({ ...equipment, inventoryNumber: Number(e.target.value) })}
-            />
-          </label>
-
-          <label>
-            S/N
-            <input type="text"
-              value={equipment.serialNumber}
-              onChange={(e) => setEquipment({ ...equipment, serialNumber: e.target.value })}
-            />
-          </label> */}
-
-
           {
             headersTable.map(({ header, accessorKey }) =>
-              <label key={header}>
-                {header}
-                <input type="text"
-                  // @ts-ignore
-                  value={equipment[accessorKey]}
-                  onChange={(e) => setEquipment({ ...equipment, [accessorKey]: Number(e.target.value) })}
-                />
-              </label>
+              accessorKey === ID ? '' :
+                <label key={header}>
+                  {header}
+                  <input type="text"
+                    // @ts-ignore
+                    value={equipment[accessorKey]}
+                    onChange={(e) =>
+                      accessorKey === NUMBER_WORD ?
+                        setEquipment({ ...equipment, [accessorKey]: Number(e.target.value) }) :
+                        setEquipment({ ...equipment, [accessorKey]: e.target.value })
+                    }
+                  />
+                </label>
             )
           }
           <button onClick={addEquipment}>
@@ -98,26 +77,6 @@ function EquipmentList(): JSX.Element {
         </form>
       </MyModal>
       <Table />
-      {/* <table>
-        <tbody>
-          {
-            userDevices.map((device, index) => {
-              const { id, inventoryNumber, serialNumber, description, name, place } = device;
-              return (
-                <tr key={id} >
-                  <td>{index + 1}</td>
-                  <td>{inventoryNumber}</td>
-                  <td>{serialNumber}</td>
-                  <td>{description}</td>
-                  <td>{name}</td>
-                  <td>{place.object}</td>
-                  <td>{place.place}</td>
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </table> */}
     </>
   )
 }

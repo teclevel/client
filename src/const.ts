@@ -14,6 +14,9 @@ export const DEVICE_TYPE = [
   'электромеханическое'
 ];
 
+export const NUMBER_WORD= 'inventoryNumber';
+export const ID= 'id';
+
 export const SPM_PERIODS = [
   { value: 1, name: '1/неделю' },
   { value: 4, name: '1/месяц' },
@@ -66,7 +69,7 @@ export const headersTable = [
   },
   {
     header: 'Объект',
-    accessorKey: 'city'
+    accessorKey: 'object'
   },
   {
     header: 'Место',
