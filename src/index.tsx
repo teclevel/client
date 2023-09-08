@@ -8,7 +8,6 @@ import { Devices } from './types/device';
 import { brands, devices, types } from './mocks/devices';
 import { Types } from './types/type';
 import { Brands } from './types/brand';
-
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
@@ -49,7 +48,7 @@ const defaultState:IStore = {
 }
 
 export const Context = createContext(defaultState);
-
+console.log('сервер: ',process.env.REACT_APP_API_URL);// из файла .env в корне
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

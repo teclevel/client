@@ -7,9 +7,9 @@ import { observer } from 'mobx-react-lite';
 
 
 function App(): JSX.Element {
-  const { user, devices } = useContext(Context)
-  console.log('user.isAuth-', user.isAuth);
-  console.log('device-', devices.devices.length)
+  const { user/* , devices */ } = useContext(Context)
+  // console.log('user.isAuth-', user.isAuth);
+  // console.log('device-', devices.devices.length)
 
   return (
     <BrowserRouter>

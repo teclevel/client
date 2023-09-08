@@ -15,7 +15,7 @@ export const devices: Devices = [
     shield: "https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095444%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR",
     images: ["https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095348%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR", "https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095409%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR"],
     // technicalSpecifications,
-    city: "Красногорск",
+    object: "Красногорск",
     placeIn: "Ресторан"
   },
   {
@@ -30,7 +30,7 @@ export const devices: Devices = [
     shield: "https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095444%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR",
     images: ["https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095348%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR", "https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095409%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR"],
     // technicalSpecifications,
-    city: "Красногорск",
+    object: "Красногорск",
     placeIn: "Ресторан"
   },
   {
@@ -45,7 +45,7 @@ export const devices: Devices = [
     shield: "https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095444%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR",
     images: ["https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095348%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR", "https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095409%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR"],
     // technicalSpecifications,
-    city: "Одинцово",
+    object: "Одинцово",
     placeIn: "Ресторан"
   },
   {
@@ -60,7 +60,7 @@ export const devices: Devices = [
     shield: "https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095444%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR",
     images: ["https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095348%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR", "https://globus-my.sharepoint.com/personal/sg_zajczev_globus_ru/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR%2FIMG_20221026_095409%2Ejpg&parent=%2Fpersonal%2Fsg_zajczev_globus_ru%2FDocuments%2FГМ%2FСаларьево%2Fпосудомойки%2Fпосудомойка%20STR"],
     // technicalSpecifications,
-    city: "Саларьево",
+    object: "Саларьево",
     placeIn: "кулинария"
   }
 ]

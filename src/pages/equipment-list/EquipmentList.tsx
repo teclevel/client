@@ -22,7 +22,6 @@ const initialEquipment = {
 
 function EquipmentList(): JSX.Element {
   // const navigate = useNavigate();
-  console.log(headersTable);
 
   const { devices } = useContext(Context)
   const userDevices = devices.devices

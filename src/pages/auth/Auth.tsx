@@ -1,12 +1,13 @@
 import { observer } from 'mobx-react-lite';
-// import { useContext, /* useState */ } from 'react';
+import { /* useContext, */  useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { NavLink, useLocation, /* useLocation */ } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 // import { Context } from '../../index';
 import { REGISTRATION_ROUTE, LOGIN_ROUTE } from '../../const';
-// import { login, registration } from '../http/userApi';
+import { login, registration } from '../../http/userApi';
+// import { User } from '../../types/user';
 // import { LOGIN_ROUTE/* , REGISTRATION_ROUTE  */} from '../../routes';
 
 function Auth() {
@@ -15,20 +16,24 @@ function Auth() {
 
   const isLogin = location.pathname === LOGIN_ROUTE;
 
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // console.log(email, password)
+  
+  const click = async () => {
+    let data;
+    if (isLogin) {
+      data = await login();//запрос на авторизацию
+      console.log('islogin',data);
+    } else {
+      data = await registration(email, password);//запрос на регистрацию
+      console.log('nologin',data); 
 
-  // const click = async () => {
-  //   let data;
-  //   if (isLogin) {
-  //     data = await login(email, password);
-  //   } else {
-  //     data = await registration(email, password);
-  //     console.log(data);
-  //   }
-  //   // user.setUser(user);
-  //   // user.setIsAuth(true)
-  // }
+    }
+    // user.setUser(user);
+    // user.setIsAuth(true)
+  }
+  
   return (
     <Container
       className='d-flex justify-content-center align-item-center'
@@ -50,8 +55,8 @@ function Auth() {
             <Form.Control
               type="email"
               placeholder="Enter email"
-            // value={email}
-            // onChange={e => setEmail(e.target.value)}
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
           </Form.Group>
 
@@ -60,8 +65,8 @@ function Auth() {
             <Form.Control
               type="password"
               placeholder="Password"
-              // value={password}
-              // onChange={e => setPassword(e.target.value)}
+              value={password}
+              onChange={e => setPassword(e.target.value)}
               autoComplete='on'
             />
           </Form.Group>
@@ -84,8 +89,8 @@ function Auth() {
             }
             <Button
               variant="primary"
-              type="submit"
-            // onClick={click}
+              // type="submit"
+              onClick={click}
             >
               {
                 isLogin ? 'Войти' : 'Зарегистрироваться'

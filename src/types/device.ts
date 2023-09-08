@@ -25,7 +25,7 @@ export type Device = {
   shield: string,
   images: string[],
   // technicalSpecifications:TechnicalSpecifications,
-  city: string,
+  object: string,
   placeIn: string
 }
 
