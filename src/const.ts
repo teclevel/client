@@ -1,7 +1,7 @@
 import { RadioButtons } from './types/radio-button';
 
 export const MAIN_ROUTE = '/';
-export const ADMIN_ROUTE = '/admin';
+// export const ADMIN_ROUTE = '/admin';
 export const LOGIN_ROUTE = '/login';
 export const REGISTRATION_ROUTE = '/registration';
 export const TABLE_SPM_ROUTE = '/table-spm';
@@ -14,8 +14,8 @@ export const DEVICE_TYPE = [
   'электромеханическое'
 ];
 
-export const NUMBER_WORD= 'inventoryNumber';
-export const ID= 'id';
+export const NUMBER_WORD = 'inventoryNumber';
+export const ID = 'id';
 
 export const SPM_PERIODS = [
   { value: 1, name: '1/неделю' },

@@ -10,35 +10,38 @@ import TableSPM from "./pages/tableSPM/TableSPM"
 
 export const publicRoutes = [
   {
-    path: MAIN_ROUTE,
-    Component: Main
-  },
-  {
     path: LOGIN_ROUTE,
     Component: Auth
   },
   {
     path: REGISTRATION_ROUTE,
     Component: Auth
-  },
-  {
-    path: TABLE_SPM_ROUTE,
-    Component: TableSPM
-  },
-  {
-    path: EQUIPMENT_ROUTE,
-    Component: EquipmentList
-  },
-  {
-    path: REPAIR_LIST_ROUTE,
-    Component: RepairList
-  },
-  {
-    path: EQUIPMENT_ROUTE + '/:id',
-    Component: Equipment
-  },
-  {
-    path: NOT_FOUND,
-    Component: NotFound
   }
 ]
+
+export const authRoutes = [
+    {
+      path: MAIN_ROUTE,
+      Component: Main
+    },
+    {
+      path: TABLE_SPM_ROUTE,
+      Component: TableSPM
+    },
+    {
+      path: EQUIPMENT_ROUTE,
+      Component: EquipmentList
+    },
+    {
+      path: REPAIR_LIST_ROUTE,
+      Component: RepairList
+    },
+    {
+      path: EQUIPMENT_ROUTE + '/:id',
+      Component: Equipment
+    },
+    {
+      path: NOT_FOUND,
+      Component: NotFound
+    }
+  ]

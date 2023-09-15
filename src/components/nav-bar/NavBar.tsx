@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {  MAIN_ROUTE, REGISTRATION_ROUTE } from "../../const";
+import {  LOGIN_ROUTE, MAIN_ROUTE } from "../../const";
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from "react-router-dom";
 // import { MAIN_ROUTE } from "../../const";
@@ -15,14 +15,14 @@ function NavBar() {
   const navigate = useNavigate();
 
   const logInHandle = () => {
-    navigate(REGISTRATION_ROUTE);
-    user.setIsAuth(true)
+    navigate(LOGIN_ROUTE);
+  }
+  
+  const logOutHandle = () => {
+    user.setUser({});
+    user.setIsAuth(false);
   }
 
-  const logOutHandle = () => {
-    navigate(REGISTRATION_ROUTE);
-    user.setIsAuth(false)
-  }
   return (
     <Navbar bg="dark" variant="dark">
       <Container>

@@ -16,25 +16,26 @@ interface IStore {
   user: {
     isAuth: boolean,
     user: User, //| null
-    setIsAuth: (a:boolean)=>void
+    setIsAuth: (a: boolean) => void,
+    setUser: (a:any) => void //????????????????????????any
   },
   devices: {
-    types:Types,
+    types: Types,
     brands: Brands,
-    devices:Devices,
-    setDevices: (a:any[])=>void
+    devices: Devices,
+    setDevices: (a: any[]) => void
   }
 }
 
-const defaultState:IStore = {
+const defaultState: IStore = {
   user: {
     isAuth: false,
     user: {
       email: 'asd@m.ru',
       password: '123'
     },
-    setIsAuth(){},
-    // setUser(){}
+    setIsAuth() { },
+    setUser() { }
   },
   devices: {
     types: types,
@@ -42,13 +43,13 @@ const defaultState:IStore = {
     devices: devices,
     // setTypes(){},
     // setBrands(){},
-    setDevices(){}
+    setDevices() { }
 
   }
 }
 
 export const Context = createContext(defaultState);
-console.log('сервер: ',process.env.REACT_APP_API_URL);// из файла .env в корне
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

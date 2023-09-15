@@ -16,7 +16,7 @@ function Equipment(): JSX.Element {
   const idDevice = Number(id) - 1;
 
   // const id2=Number(id)
-  console.log(idDevice);
+  // console.log(idDevice);
 
   const { inventoryNumber, serialNumber, description, name, view, shield, images } = devices.devices[idDevice];
   return (

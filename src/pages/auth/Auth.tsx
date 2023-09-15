@@ -1,39 +1,43 @@
 import { observer } from 'mobx-react-lite';
-import { /* useContext, */  useState } from 'react';
+import { useContext, useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { NavLink, useLocation } from 'react-router-dom';
-// import { Context } from '../../index';
-import { REGISTRATION_ROUTE, LOGIN_ROUTE } from '../../const';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Context } from '../../index';
+import { REGISTRATION_ROUTE, LOGIN_ROUTE, MAIN_ROUTE } from '../../const';
 import { login, registration } from '../../http/userApi';
-// import { User } from '../../types/user';
-// import { LOGIN_ROUTE/* , REGISTRATION_ROUTE  */} from '../../routes';
 
 function Auth() {
-  // const { user } = useContext(Context);
+  const { user } = useContext(Context);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isLogin = location.pathname === LOGIN_ROUTE;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // console.log(email, password)
-  
-  const click = async () => {
-    let data;
-    if (isLogin) {
-      data = await login();//запрос на авторизацию
-      console.log('islogin',data);
-    } else {
-      data = await registration(email, password);//запрос на регистрацию
-      console.log('nologin',data); 
 
+  const click = async () => {
+    try {
+      let data;//данные пользователя
+
+      if (isLogin) {
+        data = await login(email, password);//запрос на авторизацию(уже есть аккаунт)
+        console.log('прошла авторизация', data);
+      } else {
+        data = await registration(email, password);//запрос на регистрацию
+        console.log('прошла регистрация', data);
+      }
+      user.setUser(user);
+      user.setIsAuth(true);
+      navigate(MAIN_ROUTE);
+
+    } catch (e: any) {
+      alert(e.response.data.message)//сообщения определенные на сервере
     }
-    // user.setUser(user);
-    // user.setIsAuth(true)
   }
-  
+
   return (
     <Container
       className='d-flex justify-content-center align-item-center'
@@ -89,7 +93,6 @@ function Auth() {
             }
             <Button
               variant="primary"
-              // type="submit"
               onClick={click}
             >
               {
