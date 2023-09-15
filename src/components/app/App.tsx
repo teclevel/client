@@ -16,10 +16,13 @@ function App(): JSX.Element {
     check()
       .then(
         data => {
-          console.log('прошла проверка ', data, 'токен: ',localStorage.getItem('token'))
+          console.log('прошла проверка ', data, 'токен: ', localStorage.getItem('token'))
           user.setUser(data);
           user.setIsAuth(true);
         })
+      .catch(() => {
+        alert('Вы вышли из аккаунта')
+      })
       .finally(() => setLoading(false))
   }, [])
 

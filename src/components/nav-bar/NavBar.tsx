@@ -17,10 +17,11 @@ function NavBar() {
   const logInHandle = () => {
     navigate(LOGIN_ROUTE);
   }
-  
+
   const logOutHandle = () => {
     user.setUser({});
     user.setIsAuth(false);
+    localStorage.removeItem('token');
   }
 
   return (
